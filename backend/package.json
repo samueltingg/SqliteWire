@@ -1,0 +1,24 @@
+{
+  "name": "backend",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "tsx src/server.ts",
+    "build": "tsc -b",
+    "start": "node dist/server.js"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "tsx": "^4.20.5"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@fastify/cors": "^11.1.0",
+    "@types/better-sqlite3": "^7.6.13",
+    "better-sqlite3": "^12.2.0",
+    "fastify": "^5.5.0"
+  }
+}
