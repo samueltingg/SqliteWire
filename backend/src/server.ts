@@ -5,7 +5,7 @@ import fastifyCors from "@fastify/cors";
 const fastify = Fastify({ logger: true });
 
 await fastify.register(fastifyCors, {
-	origin: "http://localhost:5173",
+	origin: "*",
 	methods: ["GET", "POST", "PUT", "DELETE"], // allow your methods
   });
 
@@ -70,6 +70,6 @@ fastify.delete("/users/:id", async (request) => {
 });
 
 // Start server
-fastify.listen({ port: 3000 }).then(() => {
+fastify.listen({ port: 3000, host: "0.0.0.0" }).then(() => {
   console.log("🚀 Server running at http://localhost:3000");
 });
