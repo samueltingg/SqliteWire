@@ -1,7 +1,19 @@
 import Database from "better-sqlite3";
+import fs from "fs";
+import path from "path";
+
+// Resolve path to data/app.db relative to project root
+const dataDir = path.resolve("./data");
+const dbPath = path.join(dataDir, "app.db");
+
+// Ensure the directory exists
+if (!fs.existsSync(dataDir)) {
+  fs.mkdirSync(dataDir, { recursive: true });
+  console.log(`Created directory: ${dataDir}`);
+}
 
 // Open or create database file
-const db = new Database("app.db");
+const db = new Database(dbPath);
 
 // Create users table if it doesn't exist
 db.exec(`
@@ -11,18 +23,4 @@ db.exec(`
   )
 `);
 
-const insertUser = db.prepare("INSERT INTO users (username) VALUES (?)");
-
-// Run the query
-try {
-  const info = insertUser.run("samuel"); // replace with username variable
-
-  console.log("User inserted with ID:", info.lastInsertRowid);
-} catch (err: any) {
-  if (err.code === "SQLITE_CONSTRAINT_UNIQUE") {
-    console.error("Username already exists!");
-  } else {
-    throw err;
-  }
-}
 export default db;

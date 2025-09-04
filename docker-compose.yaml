@@ -8,6 +8,9 @@ services:
       - backend
     networks:
       - appnet
+    volumes:
+      - ./frontend:/app # bind mount
+      - /app/node_modules   # anonymous volume for container's node_modules
   backend:
     build: ./backend
     ports:
@@ -15,6 +18,13 @@ services:
     working_dir: /app
     networks:
       - appnet
+    volumes:
+      - ./backend:/app # bind mount
+      - /app/node_modules  # anonymous volume for container's node_modules
+      - sqlite-data:/app/data
 networks:
   appnet:
     driver: bridge
+
+volumes:
+  sqlite-data: 
