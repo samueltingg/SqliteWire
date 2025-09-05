@@ -1,4 +1,4 @@
-# SqliteWire  
+# SqliteWire
 > A dead-simple Fastify + SQLite demo showing how a frontend talks to a SQL database via REST.
 
 ---
@@ -17,12 +17,17 @@
 git clone https://github.com/you/sqlitewire.git
 cd sqlitewire
 
-# 2. install
-npm install
-
-# 3. run
-npm start
+# 2. Run both frontend & backend containers
+docker compose up -d
 # Server listening on http://localhost:3000
+# View frontend website at http://localhost:5173
+
+# 3. View logs (optional)
+docker compose logs -f
+
+# 4. Stop the application
+docker compose down
+
 ```
 
 ---
