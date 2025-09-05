@@ -42,3 +42,28 @@ docker compose down
 | PUT    | `/users/:id`| `{ "username": "Bob" }`             | Update user        |
 | DELETE | `/users/:id`| —                                   | Delete user        |
 
+
+## File Structure
+```
+app/
+├── backend/
+│   ├── src/
+│   │   └── ...            # Fastify routes, controllers, etc.
+│   ├── data/
+│   │   └── app.db         # SQLite database file (persistent)
+│   ├── package.json
+│   ├── Dockerfile
+│   ├── .dockerignore
+│
+├── frontend/
+│   ├── src/
+│   │   └── ...            # React components, pages, etc.
+│   ├── public/
+│   │   └── ...            # Static assets
+│   ├── package.json
+│   ├── Dockerfile
+│   └── .dockerignore
+│
+├── docker-compose.yaml
+└── README.md
+```
