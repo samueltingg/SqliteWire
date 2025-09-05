@@ -1,5 +1,5 @@
 # SqliteWire
-> A dead-simple Fastify + SQLite demo showing how a frontend talks to a SQL database via REST.
+> A simple Fastify + SQLite demo showing how a frontend talks to a SQL database via REST.
 
 ---
 
